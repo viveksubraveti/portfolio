@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Providers from "./providers";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vivek Subraveti Uma Mahesh - Developer Portfolio",
     description:
-      "Passionate developer creating simple and effective solutions. ",
+      "Passionate developer creating simple and effective solutions.",
     url: "https://your-domain.com",
     siteName: "Vivek Subraveti - Portfolio",
     images: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "[Your Name] - Developer",
     description:
       "Passionate developer creating simple and effective solutions. Explore my projects and development approach.",
-    images: ["../public/me.jpg"],
+    images: ["/me.jpg"],
   },
   robots: {
     index: true,
@@ -81,15 +81,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* Wrap your app with client-side providers */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

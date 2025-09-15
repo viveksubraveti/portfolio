@@ -33,9 +33,9 @@ const certifications = [
 
 export default function CertificationSection() {
   return (
-    <section className='bg-gray-900 py-12 sm:py-20'>
+    <section className='bg-gray-50 dark:bg-gray-900 py-12 sm:py-20 transition-colors'>
       <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <h2 className='text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 text-justify'>
+        <h2 className='text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-justify'>
           Certifications
         </h2>
         <div className='grid grid-cols-2 sm:grid-cols-4 gap-8'>
@@ -46,12 +46,12 @@ export default function CertificationSection() {
     flex items-center justify-center
     aspect-square
     h-40
-    bg-gray-800
+    bg-white dark:bg-gray-800
     rounded-xl
-    border-2 border-gray-700
+    border-2 border-gray-300 dark:border-gray-700
     transition-all duration-200
     hover:scale-105
-    hover:border-blue-500
+    hover:border-blue-500 dark:hover:border-blue-500
     hover:shadow-xl
     cursor-pointer
   '

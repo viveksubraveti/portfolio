@@ -45,25 +45,29 @@ const skills = [
 
 export default function SkillsSection() {
   return (
-    <section className='bg-gray-800 py-16 sm:py-24'>
+    <section className='bg-white dark:bg-gray-800 py-16 sm:py-24 transition-colors'>
       <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <h2 className='text-2xl font-bold text-white mb-6 sm:mb-8'>Skills</h2>
+        <h2 className='text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8'>
+          Skills
+        </h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
           {skills.map((skill) => (
             <div
               key={skill.label}
               className='
                 flex items-center 
-                bg-gray-700 
+                bg-gray-100 dark:bg-gray-700 
                 rounded-md 
                 p-4 
-                border-l-4 border-orange-500 
+                border-l-4 border-orange-500 dark:border-orange-500 
                 transition-shadow duration-200 
                 hover:-translate-y-1 hover:shadow-lg
               '
             >
               <span className='mr-3'>{skill.icon}</span>
-              <span className='text-white font-medium'>{skill.label}</span>
+              <span className='text-gray-900 dark:text-white font-medium'>
+                {skill.label}
+              </span>
             </div>
           ))}
         </div>
