@@ -1,17 +1,20 @@
 const workHistory = [
   {
+    id: 1,
     title: "Software Engineer",
     company: "Segula Technologies GmbH",
     location: "Cologne, Germany",
     period: "April 2021 - Present",
   },
   {
+    id: 2,
     title: "Intern & Master Thesis",
     company: "AVL Deutschland GmbH",
     location: "Stuttgart, Germany",
     period: "May 2019 - December 2020",
   },
   {
+    id: 3,
     title: "Software Engineer",
     company: "Changepond Technologies",
     location: "Chennai, India",
@@ -27,7 +30,7 @@ export default function WorkSection() {
         <div className='space-y-6'>
           {workHistory.map((job) => (
             <div
-              key={job.title}
+              key={job.id}
               className='bg-gray-700 border border-blue-700 rounded-lg p-6 shadow-md transition-transform hover:scale-105 hover:shadow-lg'
             >
               <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center'>
