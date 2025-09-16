@@ -6,14 +6,14 @@ const education = [
     university: "Technische Universität Chemnitz",
     location: "Chemnitz, Germany",
     year: "2021",
-    concentration: "Automotive Software Systems & Computer Vision",
+    Coursework: "Automotive Software Systems & Computer Vision",
   },
   {
     degree: "Master of Science in Software Engineering",
     university: "Sri Ramakrishna Engineering College",
     location: "Coimbatore, India",
     year: "2014",
-    concentration: "Software Development & Data Structures",
+    Coursework: "Software Development & Data Structures",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function EducationSection() {
                   </span>
                 </div>
                 <div className='text-gray-600 dark:text-gray-300'>
-                  Concentration: {edu.concentration}
+                  Coursework: {edu.Coursework}
                 </div>
               </div>
             </li>

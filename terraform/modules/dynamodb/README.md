@@ -17,33 +17,26 @@ module "dynamodb" {
 
 ## Variables
 
-| Name | Description | Type | Required |
-|------|-------------|------|----------|
-| `table_name` | Name of the DynamoDB table | `string` | Yes |
+| Name         | Description                | Type     | Required |
+| ------------ | -------------------------- | -------- | -------- |
+| `table_name` | Name of the DynamoDB table | `string` | Yes      |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
+| Name         | Description                        |
+| ------------ | ---------------------------------- |
 | `table_name` | Name of the created DynamoDB table |
-| `table_arn` | ARN of the DynamoDB table |
+| `table_arn`  | ARN of the DynamoDB table          |
 
 ## Features
 
-- Pay-per-request billing (cost-effective for low traffic)
+- Pay-per-request billing
 - Hash key: `id` (String type)
 - No provisioned capacity (serverless)
 - Suitable for visitor counter functionality
 
 ## Table Schema
 
-| Attribute | Type | Key Type |
-|-----------|------|----------|
-| `id` | String | Hash Key |
-
-## Cost
-
-- No fixed costs
-- Pay only for read/write requests
-- First 25 GB storage free
-- Ideal for low-traffic applications
+| Attribute | Type   | Key Type |
+| --------- | ------ | -------- |
+| `id`      | String | Hash Key |
