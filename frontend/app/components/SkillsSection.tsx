@@ -27,7 +27,8 @@ const skills = [
   },
   {
     icon: <ArrowPathIcon className='h-5 w-5 text-orange-500' />,
-    label: "DevOps & Containerization: Docker, Kubernetes, Terraform",
+    label:
+      "DevOps & Containerization: Docker, Kubernetes, Helm, Kustomize, Terraform",
   },
   {
     icon: <ArrowPathIcon className='h-5 w-5 text-orange-500' />,
