@@ -1,0 +1,5 @@
+domain_name          = "viveksubraveti.com"
+bucket_name          = "viveksubraveti-portfolio"
+aws_region           = "us-east-1"
+dynamodb_table_name  = "portfolio-visitor-count"
+protocol             = "https"
