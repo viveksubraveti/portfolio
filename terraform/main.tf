@@ -6,7 +6,7 @@ terraform {
       version = "~> 6.13.0"
     }
   }
-  
+
   backend "s3" {
     # Configuration will be provided via backend.hcl
   }
@@ -28,25 +28,25 @@ module "s3_website" {
 }
 
 module "cloudfront" {
-  source               = "./modules/cloudfront"
-  domain_name          = var.domain_name
-  s3_website_endpoint  = module.s3_website.website_endpoint
-  certificate_arn      = module.ssl_certificate.certificate_arn
-  
+  source              = "./modules/cloudfront"
+  domain_name         = var.domain_name
+  s3_website_endpoint = module.s3_website.website_endpoint
+  certificate_arn     = module.ssl_certificate.certificate_arn
+
   depends_on = [module.ssl_certificate]
 }
 
 module "ssl_certificate" {
   source      = "./modules/ssl-certificate"
   domain_name = var.domain_name
-  
+
   providers = {
     aws = aws.us_east_1
   }
 }
 
 module "route53" {
-  source                     = "./modules/route53"
+  source                    = "./modules/route53"
   domain_name               = var.domain_name
   cloudfront_domain_name    = module.cloudfront.domain_name
   cloudfront_hosted_zone_id = module.cloudfront.hosted_zone_id
