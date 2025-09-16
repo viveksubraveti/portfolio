@@ -1,140 +1,106 @@
-# Simple Dark Portfolio Template
+# Portfolio
 
-[Demo](https://www.devportfoliotemplates.com/portfolio-templates/simple-dark)
+A modern, serverless portfolio website showcasing cloud engineering skills with AWS services and modern web technologies.
 
-## Getting Started
+## Architecture
 
-You have two options to get started with this template:
+- **Frontend**: Next.js static site hosted on S3
+- **CDN**: CloudFront for global content delivery
+- **Database**: DynamoDB for visitor count tracking
+- **API**: Lambda function for visitor count API
+- **Infrastructure**: Terraform for Infrastructure as Code
+- **CI/CD**: GitHub Actions for automated deployment
 
-### Option 1: Using Git Sparse Checkout
+## Live Demo
 
-If you want to clone only this specific template:
+[Visit Portfolio](https://your-cloudfront-url.cloudfront.net)
 
-```bash
-git clone --no-checkout https://github.com/devportfoliotemplates/devportfoliotemplates.git
-cd devportfoliotemplates
-git sparse-checkout init --cone
-git sparse-checkout set simple-dark-portfolio-template
-git checkout
+## Technologies Used
+
+- **Frontend**: Next.js, TypeScript, Tailwind CSS
+- **Cloud**: AWS (S3, CloudFront, Lambda, DynamoDB, API Gateway)
+- **Infrastructure**: Terraform
+- **CI/CD**: GitHub Actions
+- **Version Control**: Git with feature branch workflow
+
+## Project Structure
+
+```
+portfolio/
+├── frontend/           # Next.js application
+├── terraform/          # Infrastructure as Code
+├── lambda/            # Serverless functions
+├── .github/workflows/ # CI/CD pipelines
+└── scripts/           # Deployment scripts
 ```
 
-### Option 2: Direct Download
+## Local Development
 
-You can download this template as a ZIP file:
+1. **Clone the repository**
 
-1. Visit [download-directory.github.io](https://download-directory.github.io/)
-2. Paste the URL of this portfolio folder: `https://github.com/devportfoliotemplates/devportfoliotemplates/tree/main/simple-dark-portfolio-template`
-3. Download and extract the ZIP file
+   ```bash
+   git clone <your-repo-url>
+   cd portfolio
+   ```
 
-### Running the Template
+2. **Install frontend dependencies**
 
-Once you have the template:
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-1. Install dependencies:
+3. **Run development server**
 
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
+   ```bash
+   npm run dev
+   ```
 
-2. Run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the portfolio.
-
-## Customization
-
-### Personal Information
-
-1. Update metadata in `app/layout.tsx`:
-
-   - Site title
-   - Description
-   - Open Graph metadata
-   - Favicon
-
-2. Modify content in `app/page.tsx`:
-
-   - Hero section
-   - About section
-   - Projects
-   - Contact information
-
-3. Replace assets:
-   - Replace images in the `public` directory
-   - Update social media icons
-   - Modify logo if needed
-
-### Styling
-
-1. Colors and Theme:
-
-   - Customize colors in `tailwind.config.js`
-   - Modify theme variables in `app/globals.css`
-
-2. Typography:
-
-   - Update font families in `tailwind.config.js`
-   - Modify text sizes and weights
-
-3. Layout:
-   - Adjust spacing and padding in component files
-   - Modify responsive breakpoints in `tailwind.config.js`
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Build Errors**
-
-   - Ensure all dependencies are installed
-   - Clear `.next` folder and node_modules
-   - Run `npm install` again
-
-2. **Styling Issues**
-
-   - Run `npm run build` to ensure TailwindCSS classes are generated
-   - Check for conflicting styles in `globals.css`
-
-3. **Image Loading**
-   - Verify images are in the correct format (PNG, JPG, WebP)
-   - Check image paths are correct
-   - Ensure images are in the `public` directory
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
 ## Deployment
 
-Follow these steps to deploy your portfolio for free using GitHub and Vercel:
+### Prerequisites
 
-1. Create a new GitHub repository
+- AWS CLI configured
+- Terraform installed
+- GitHub repository with required secrets
 
-2. Push your portfolio to GitHub
+### Infrastructure Deployment
 
-3. Deploy with Vercel:
-   - Go to [Vercel](https://vercel.com)
-   - Sign up or log in with GitHub
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will automatically detect Next.js
-   - Click "Deploy"
+```bash
+cd terraform
+terraform init
+terraform plan
+terraform apply
+```
 
-Your portfolio will be live in minutes with a free Vercel domain (e.g., `your-repo.vercel.app`). You can later add a custom domain in your Vercel project settings.
+### Automated Deployment
 
-## Support
+- Push to `main` branch triggers automatic deployment via GitHub Actions
+- Pipeline builds static site and deploys to S3
+- CloudFront cache invalidation ensures fresh content
 
-If you find these templates helpful, please consider:
+## Configuration
 
-- Starring the repository ⭐
-- Sharing with other developers
-- [Buying me a coffee](https://www.buymeacoffee.com/andreiancu) ☕
+### Required GitHub Secrets
 
-For issues and feature requests, please [create an issue](https://github.com/devportfoliotemplates/devportfoliotemplates/issues).
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `S3_BUCKET_NAME`
+- `CLOUDFRONT_DISTRIBUTION_ID`
+
+## Features
+
+- Responsive design with dark/light theme
+- Real-time visitor counter
+- Professional certifications showcase
+- SEO optimized
+- Fast loading with CloudFront CDN
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
