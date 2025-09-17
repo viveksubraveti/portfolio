@@ -28,7 +28,7 @@ const workHistory: Work[] = [
         description: [
           "Developed solution with 95% accuracy for detecting maneuvers (acceleration, turns, junctions)",
           "Improved detection in complex scenarios like intersections & pedestrian crossings",
-          "Processed & analyzed data of over 1000kms of mapped routes, reducing processing time by 50%",
+          "Processed and analyzed data of over 1000kms of mapped routes, reducing processing time by 50%",
         ],
         tools: [
           "Python",
@@ -74,24 +74,24 @@ const workHistory: Work[] = [
       {
         name: "Master Thesis – ADAS Data Optimization",
         description: [
-          "Developed method to reduce raw ADAS image data using CV & DL",
+          "Developed method to reduce raw ADAS image data using CV and DL",
           "Built pipeline for detecting non-traffic-relevant regions (e.g., sky, irrelevant objects)",
-          "Applied hybrid approach of classical CV + DL for segmentation & compression",
+          "Applied hybrid approach of classical CV + DL for segmentation and compression",
         ],
         tools: ["Python", "OpenCV", "TensorFlow", "PyTorch", "NumPy"],
       },
       {
         name: "Internship – Emissions Data Analysis",
         description: [
-          "Analyzed & evaluated emissions test data from multiple OEMs",
+          "Analyzed and evaluated emissions test data from a vehicle test bench",
           "Developed Python scripts to automate existing analysis tools",
-          "Improved workflows with object-oriented structuring (classes & functions)",
+          "Improved workflows with object-oriented structuring",
         ],
         tools: [
           "Python",
           "Jupyter",
           "AVL Concerto",
-          "MS Excel",
+          "MS Excel Macros",
           "Keras",
           "PyCharm",
         ],
@@ -108,9 +108,9 @@ const workHistory: Work[] = [
       {
         name: "Enterprise Web Application",
         description: [
-          "Supported Struts-based Java web application",
-          "Created & optimized stored procedures for SQL databases",
-          "Handled bug fixes, performance optimization, and system maintenance",
+          "Support engineer for a Struts-based Java web application",
+          "Designed and optimized SQL stored procedures, including KPI parameter calculations to enhance reporting accuracy",
+          "Delivered bug fixes, performance tuning, and database upgrades, including migration from SQL Server 2008 to SQL Server 2016",
         ],
         tools: [
           "Java",
@@ -122,7 +122,7 @@ const workHistory: Work[] = [
           "JavaScript",
           "CSS",
           "SVN",
-          "JIRA",
+          "Jira",
         ],
       },
     ],
