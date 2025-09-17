@@ -12,24 +12,31 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = NAVIGATION_SECTIONS.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 100;
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const viewportCenter = scrollY + windowHeight / 2;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
+      let activeSection = sections[0];
+      
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + scrollY;
+          const elementBottom = elementTop + rect.height;
+          
+          if (viewportCenter >= elementTop && viewportCenter <= elementBottom) {
+            activeSection = sectionId;
             break;
           }
         }
       }
+      
+      setActiveSection(activeSection);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
