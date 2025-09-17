@@ -6,7 +6,8 @@ const education = [
     university: "Technische Universität Chemnitz",
     location: "Chemnitz, Germany",
     year: "2021",
-    Coursework: "Automotive Software Systems & Computer Vision",
+    Coursework:
+      "Software Platforms for Automotive Systems, Multicore Programming, Image Processing, Machine Learning",
   },
   {
     degree: "Master of Science in Software Engineering",
