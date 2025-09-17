@@ -7,6 +7,7 @@ import SkillsSection from "./components/SkillsSection";
 import CertificationSection from "./components/CertificationSection";
 import ContactSection from "./components/ContactSection";
 import EducationSection from "./components/EducationSection";
+import Footer from "./components/Footer";
 
 export default function SimplePortfolio() {
   return (
@@ -20,6 +21,7 @@ export default function SimplePortfolio() {
         <CertificationSection />
         <ContactSection />
       </main>
+      <Footer />
     </>
   );
 }
