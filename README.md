@@ -30,8 +30,7 @@ portfolio/
 ├── frontend/           # Next.js application
 ├── terraform/          # Infrastructure as Code
 ├── lambda/            # Serverless functions
-├── .github/workflows/ # CI/CD pipelines
-└── scripts/           # Deployment scripts
+└── .github/workflows/ # CI/CD pipelines
 ```
 
 ## Local Development
