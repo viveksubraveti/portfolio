@@ -11,8 +11,9 @@ terraform apply
 ```
 
 This creates:
-- S3 bucket: `viveksubraveti-portfolio-terraform-state`
-- DynamoDB table: `viveksubraveti-portfolio-terraform-locks`
+
+- S3 bucket: `s3-bucket-name`
+- DynamoDB table: `dynamodb-table-name`
 
 ## Step 2: Configure Backend
 
@@ -32,10 +33,10 @@ You can add the backend configuration directly to main.tf:
 ```hcl
 terraform {
   backend "s3" {
-    bucket         = "viveksubraveti-portfolio-terraform-state"
+    bucket         = "bucket-name"
     key            = "portfolio/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "viveksubraveti-portfolio-terraform-locks"
+    dynamodb_table = "dynamodb-table-name"
     encrypt        = true
   }
 }
@@ -44,6 +45,7 @@ terraform {
 ## Verification
 
 Check that state locking works:
+
 ```bash
 terraform plan  # Should show "Acquiring state lock"
 ```

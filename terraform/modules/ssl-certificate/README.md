@@ -14,7 +14,7 @@ Creates and validates an ACM SSL certificate for custom domain with DNS validati
 module "ssl_certificate" {
   source      = "./modules/ssl-certificate"
   domain_name = "example.com"
-  
+
   providers = {
     aws = aws.us_east_1  # ACM certificates for CloudFront must be in us-east-1
   }
@@ -23,23 +23,15 @@ module "ssl_certificate" {
 
 ## Variables
 
-| Name | Description | Type | Required |
-|------|-------------|------|----------|
-| `domain_name` | Domain name for the certificate | `string` | Yes |
+| Name          | Description                     | Type     | Required |
+| ------------- | ------------------------------- | -------- | -------- |
+| `domain_name` | Domain name for the certificate | `string` | Yes      |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
+| Name              | Description                          |
+| ----------------- | ------------------------------------ |
 | `certificate_arn` | ARN of the validated SSL certificate |
-
-## Features
-
-- Free SSL certificate via AWS Certificate Manager
-- DNS validation (automatic)
-- Covers both domain.com and www.domain.com
-- Auto-renewal by AWS
-- Compatible with CloudFront
 
 ## Important Notes
 

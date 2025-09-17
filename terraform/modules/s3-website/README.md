@@ -21,22 +21,15 @@ module "s3_website" {
 
 ## Variables
 
-| Name | Description | Type | Required |
-|------|-------------|------|----------|
-| `bucket_name` | Name of the S3 bucket | `string` | Yes |
-| `domain_name` | Domain name for the website | `string` | Yes |
+| Name          | Description                 | Type     | Required |
+| ------------- | --------------------------- | -------- | -------- |
+| `bucket_name` | Name of the S3 bucket       | `string` | Yes      |
+| `domain_name` | Domain name for the website | `string` | Yes      |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| `bucket_name` | Name of the created S3 bucket |
-| `website_endpoint` | S3 website endpoint URL |
-| `bucket_arn` | ARN of the S3 bucket |
-
-## Features
-
-- Static website hosting enabled
-- Public read access configured
-- Index document: `index.html`
-- Error document: `404.html`
+| Name               | Description                   |
+| ------------------ | ----------------------------- |
+| `bucket_name`      | Name of the created S3 bucket |
+| `website_endpoint` | S3 website endpoint URL       |
+| `bucket_arn`       | ARN of the S3 bucket          |

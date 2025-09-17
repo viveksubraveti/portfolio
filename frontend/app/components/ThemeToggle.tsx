@@ -13,11 +13,10 @@ export default function ThemeToggleIcon() {
 
   const currentTheme = theme === "system" ? systemTheme : theme;
 
-  // Choose icon based on theme setting (not resolved theme)
   let Icon;
   if (theme === "system") Icon = Monitor;
   else if (theme === "dark") Icon = Moon;
-  else Icon = Sun; // light
+  else Icon = Sun;
 
   return (
     <button

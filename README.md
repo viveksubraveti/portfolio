@@ -13,7 +13,7 @@ A modern, serverless portfolio website showcasing cloud engineering skills with 
 
 ## Live Demo
 
-[Visit Portfolio](https://your-cloudfront-url.cloudfront.net)
+[Visit Portfolio](https://www.viveksubraveti.com)
 
 ## Technologies Used
 
@@ -30,8 +30,7 @@ portfolio/
 ├── frontend/           # Next.js application
 ├── terraform/          # Infrastructure as Code
 ├── lambda/            # Serverless functions
-├── .github/workflows/ # CI/CD pipelines
-└── scripts/           # Deployment scripts
+└── .github/workflows/ # CI/CD pipelines
 ```
 
 ## Local Development

@@ -21,7 +21,7 @@ Internet → Route53 → CloudFront → S3 (Static Website)
 ## Prerequisites
 
 - AWS CLI configured with appropriate permissions
-- Terraform >= 1.0 installed
+- Terraform >= 1.13.1 installed
 - Domain purchased and hosted zone created in Route53
 
 ## Usage

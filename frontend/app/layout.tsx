@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import { LINKS } from "./config/links";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -17,28 +20,15 @@ export const metadata: Metadata = {
   description:
     "Welcome to my portfolio! I am a passionate software engineer who believes in simplicity and effectiveness. I focus on creating straightforward solutions that solve real problems, with clean code and intuitive user experiences.",
   keywords: [
-    "Software Developer",
-    "Portfolio",
-    "Clean Code",
-    "Simple Design",
-    "JavaScript",
-    "TypeScript",
+    "Vivek Subraveti",
+    "Software Engineer",
+    "Full Stack Developer",
     "React",
     "Next.js",
-    "User Experience",
-    "Problem Solving",
-    "Effective Solutions",
-    "Web Development",
-    "Frontend Development",
-    "Backend Development",
-    "Vivek Subraveti",
-    "Django",
+    "TypeScript",
     "Python",
-    "Full Stack Developer",
-    "Tech Enthusiast",
-    "Agile Development",
-    "Software Engineering",
-    "OpenStreetMap",
+    "AWS",
+    "Portfolio",
   ],
   authors: [{ name: "Vivek Subraveti" }],
   creator: "Vivek Subraveti Uma Mahesh",
@@ -46,25 +36,10 @@ export const metadata: Metadata = {
     title: "Vivek Subraveti Uma Mahesh - Developer Portfolio",
     description:
       "Passionate developer creating simple and effective solutions.",
-    url: "https://your-domain.com",
-    siteName: "Vivek Subraveti - Portfolio",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "[Your Name] - Developer Portfolio",
-      },
-    ],
+    url: LINKS.website.main,
+    siteName: "Vivek Subraveti Uma Mahesh - Portfolio",
     locale: "en_US",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "[Your Name] - Developer",
-    description:
-      "Passionate developer creating simple and effective solutions. Explore my projects and development approach.",
-    images: ["/me.jpg"],
   },
   robots: {
     index: true,
@@ -86,10 +61,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* Wrap your app with client-side providers */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>{children}</Providers>
       </body>
     </html>
