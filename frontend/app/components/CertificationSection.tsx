@@ -33,7 +33,7 @@ const certifications = [
 
 export default function CertificationSection() {
   return (
-    <section className='bg-gray-50 dark:bg-gray-900 py-12 sm:py-20 transition-colors'>
+    <section id='certifications' className='bg-gray-50 dark:bg-gray-900 py-12 sm:py-20 transition-colors'>
       <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 className='text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-justify'>
           Certifications

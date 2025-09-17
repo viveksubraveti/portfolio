@@ -20,7 +20,7 @@ const education = [
 
 export default function EducationSection() {
   return (
-    <section className='bg-gray-100 dark:bg-gray-900 py-12 sm:py-20 transition-colors'>
+    <section id='education' className='bg-gray-100 dark:bg-gray-900 py-12 sm:py-20 transition-colors'>
       <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 className='text-2xl font-bold text-gray-900 dark:text-white mb-8'>
           Education

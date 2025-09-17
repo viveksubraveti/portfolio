@@ -4,7 +4,7 @@ import VisitorCount from "./VisitorCount";
 
 export default function ContactSection() {
   return (
-    <section className='py-16 px-4 border-t border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-800 transition-colors'>
+    <section id='contact' className='py-16 px-4 border-t border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-800 transition-colors'>
       <div className='max-w-2xl mx-auto'>
         <div className='text-center space-y-6'>
           <h2 className='text-2xl font-semibold text-gray-900 dark:text-white'>

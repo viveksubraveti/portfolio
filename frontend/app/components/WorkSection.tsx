@@ -137,7 +137,7 @@ export default function WorkSection() {
   };
 
   return (
-    <section className='bg-white dark:bg-gray-800 py-12 sm:py-20 transition-colors'>
+    <section id='experience' className='bg-white dark:bg-gray-800 py-12 sm:py-20 transition-colors'>
       <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 className='text-3xl font-bold text-gray-900 dark:text-white mb-8'>
           Work History
