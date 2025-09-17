@@ -1,33 +1,34 @@
 import Image from "next/image";
+import { LINKS } from "../config/links";
 
 const certifications = [
   {
     logo: "/tf.png",
-    link: "https://www.credly.com/badges/6fb9f186-725a-42be-a6bb-72675d7e4429",
+    link: LINKS.certifications.terraform,
   },
   {
     logo: "/cka.png",
-    link: "https://www.credly.com/badges/250dbc3e-90c9-4e2e-9423-93be334b3b4f",
+    link: LINKS.certifications.cka,
   },
   {
     logo: "/kcna_new.png",
-    link: "https://www.credly.com/badges/d90d212f-09ad-4aeb-b712-3de74c8e2230",
+    link: LINKS.certifications.kcna,
   },
   {
     logo: "/ckad.png",
-    link: "https://www.credly.com/badges/643d1e9d-d2e3-4330-9ce2-3f1ef3998906",
+    link: LINKS.certifications.ckad,
   },
   {
     logo: "/saa.png",
-    link: "https://www.credly.com/badges/e72143bc-06fd-4391-9048-5f50d7ca952f",
+    link: LINKS.certifications.saa,
   },
   {
     logo: "/aws-ai.png",
-    link: "https://www.credly.com/badges/1378ae3c-ae6b-4cce-9889-9ba625da5663",
+    link: LINKS.certifications.awsAi,
   },
   {
     logo: "/aws-cloud.png",
-    link: "https://www.credly.com/badges/4a1bbee5-cb68-4641-8ed0-edd6ac2e7fd8",
+    link: LINKS.certifications.awsCloud,
   },
 ];
 

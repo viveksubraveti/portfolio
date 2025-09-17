@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://nh0uf66oog.execute-api.us-east-1.amazonaws.com/prod';
+import { LINKS } from "../config/links";
 
 export default function VisitorCount() {
   const [count, setCount] = useState<number>(0);
@@ -22,7 +21,7 @@ export default function VisitorCount() {
       } else {
         // Use DynamoDB API for production
         try {
-          const response = await fetch(`${API_URL}/visitor-count`);
+          const response = await fetch(`${LINKS.api.visitorCount}/visitor-count`);
           
           if (response.ok) {
             const data = await response.json();

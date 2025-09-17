@@ -1,6 +1,7 @@
 "use client";
 
 import VisitorCount from "./VisitorCount";
+import { LINKS } from "../config/links";
 
 export default function ContactSection() {
   return (
@@ -17,7 +18,7 @@ export default function ContactSection() {
           {/* Contact Buttons */}
           <div className='flex flex-col sm:flex-row justify-center gap-4'>
             <a
-              href='mailto:viveksubraveti@gmail.com'
+              href={LINKS.email}
               className='px-6 py-2 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 hover:-translate-y-1 transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg'
             >
               <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 20 20'>
@@ -27,7 +28,7 @@ export default function ContactSection() {
               Get in Touch
             </a>
             <a
-              href='https://drive.google.com/file/d/1cHYB5tLkmf8X24KVw75GykezH4xwBnwC/view?usp=sharing'
+              href={LINKS.resume}
               target='_blank'
               className='px-6 py-2 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 hover:-translate-y-1 transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg'
             >
@@ -51,7 +52,7 @@ export default function ContactSection() {
           <div className='flex flex-col items-center gap-3'>
             <div className='flex justify-center gap-4'>
               <a
-                href='https://github.com/viveksubraveti'
+                href={LINKS.github}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-110 transition-all duration-300'
@@ -65,7 +66,7 @@ export default function ContactSection() {
                 </svg>
               </a>
               <a
-                href='https://www.linkedin.com/in/viveksubraveti/'
+                href={LINKS.linkedin}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 transition-all duration-300'

@@ -3,15 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
-
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#education" },
-  { name: "Skills", href: "#skills" },
-  { name: "Certifications", href: "#certifications" },
-  { name: "Contact", href: "#contact" },
-];
+import { NAVIGATION_SECTIONS } from "../config/links";
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("");
@@ -19,7 +11,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navigation.map((item) => item.href.substring(1));
+      const sections = NAVIGATION_SECTIONS.map((item) => item.href.substring(1));
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -71,7 +63,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className='hidden md:flex space-x-8'>
-            {navigation.map((item) => (
+            {NAVIGATION_SECTIONS.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
@@ -125,7 +117,7 @@ export default function Header() {
         {isMenuOpen && (
           <div className='md:hidden py-4 border-t border-gray-200 dark:border-gray-700'>
             <div className='flex flex-col space-y-2'>
-              {navigation.map((item) => (
+              {NAVIGATION_SECTIONS.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
