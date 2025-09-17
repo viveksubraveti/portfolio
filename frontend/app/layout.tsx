@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import { LINKS } from "./config/links";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     title: "Vivek Subraveti Uma Mahesh - Developer Portfolio",
     description:
       "Passionate developer creating simple and effective solutions.",
-    url: "https://www.viveksubraveti.com",
+    url: LINKS.website.main,
     siteName: "Vivek Subraveti Uma Mahesh - Portfolio",
     locale: "en_US",
     type: "website",

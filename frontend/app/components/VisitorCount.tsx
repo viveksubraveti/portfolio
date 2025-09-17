@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://nh0uf66oog.execute-api.us-east-1.amazonaws.com/prod';
+import { LINKS } from "../config/links";
 
 export default function VisitorCount() {
   const [count, setCount] = useState<number>(0);
@@ -10,21 +9,33 @@ export default function VisitorCount() {
 
   useEffect(() => {
     const updateVisitorCount = async () => {
-      try {
-        const response = await fetch(`${API_URL}/visitor-count`);
-        
-        if (response.ok) {
-          const data = await response.json();
-          setCount(data.count);
-        } else {
-          console.error('API Failed - Status:', response.status);
-          setCount(0); // Show 0 if API fails
-        }
-      } catch (error) {
-        console.error('API Error:', error);
-        setCount(0); // Show 0 if API fails
-      } finally {
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      
+      if (isLocalhost) {
+        // Use localStorage for localhost
+        const currentCount = parseInt(localStorage.getItem("visitorCount") || "0");
+        const newCount = currentCount + 1;
+        localStorage.setItem("visitorCount", newCount.toString());
+        setCount(newCount);
         setLoading(false);
+      } else {
+        // Use DynamoDB API for production
+        try {
+          const response = await fetch(`${LINKS.api.visitorCount}/visitor-count`);
+          
+          if (response.ok) {
+            const data = await response.json();
+            setCount(data.count);
+          } else {
+            console.error('API Failed - Status:', response.status);
+            setCount(0);
+          }
+        } catch (error) {
+          console.error('API Error:', error);
+          setCount(0);
+        } finally {
+          setLoading(false);
+        }
       }
     };
 

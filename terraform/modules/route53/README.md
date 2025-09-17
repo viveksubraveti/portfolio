@@ -21,25 +21,18 @@ module "route53" {
 
 ## Variables
 
-| Name | Description | Type | Required |
-|------|-------------|------|----------|
-| `domain_name` | Domain name | `string` | Yes |
-| `cloudfront_domain_name` | CloudFront distribution domain | `string` | Yes |
-| `cloudfront_hosted_zone_id` | CloudFront hosted zone ID | `string` | Yes |
-| `certificate_arn` | ACM certificate ARN | `string` | Yes |
+| Name                        | Description                    | Type     | Required |
+| --------------------------- | ------------------------------ | -------- | -------- |
+| `domain_name`               | Domain name                    | `string` | Yes      |
+| `cloudfront_domain_name`    | CloudFront distribution domain | `string` | Yes      |
+| `cloudfront_hosted_zone_id` | CloudFront hosted zone ID      | `string` | Yes      |
+| `certificate_arn`           | ACM certificate ARN            | `string` | Yes      |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
+| Name             | Description            |
+| ---------------- | ---------------------- |
 | `hosted_zone_id` | Route53 hosted zone ID |
-
-## Features
-
-- A records with CloudFront aliases
-- Both domain.com and www.domain.com supported
-- Automatic health checks disabled (not needed for CloudFront)
-- Uses existing hosted zone
 
 ## Prerequisites
 
