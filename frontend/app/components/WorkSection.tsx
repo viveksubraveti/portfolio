@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 
 type Project = {
   name: string;
@@ -164,11 +163,6 @@ export default function WorkSection() {
                 </div>
                 <div className='flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm mt-2 sm:mt-0'>
                   {job.period}
-                  <ChevronDown
-                    className={`w-4 h-4 transform transition-transform ${
-                      openId === job.id ? "rotate-180" : ""
-                    }`}
-                  />
                 </div>
               </div>
 
