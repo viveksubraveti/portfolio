@@ -18,7 +18,7 @@ const skills = [
     label: "Web Frameworks & Libraries: Django, Next.js, React",
   },
   {
-    icon: <ServerStackIcon className='h-5 w-5 text-orange-500' />, // <-- updated here
+    icon: <ServerStackIcon className='h-5 w-5 text-orange-500' />,
     label: "Databases: PostgreSQL, MySQL, SQLite",
   },
   {
@@ -40,7 +40,7 @@ const skills = [
   },
   {
     icon: <ComputerDesktopIcon className='h-5 w-5 text-orange-500' />,
-    label: "Operating Systems: Linux, MacOS, Windows",
+    label: "Operating Systems: Linux, macOS, Windows",
   },
 ];
 
