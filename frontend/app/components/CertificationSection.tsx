@@ -53,13 +53,14 @@ export default function CertificationSection() {
     rounded-xl
     border-2 border-gray-300 dark:border-gray-700
     transition-all duration-300
-    hover:scale-110
-    hover:border-blue-500 dark:hover:border-blue-500
-    hover:shadow-2xl
-    hover:-translate-y-2
-    hover:rotate-2
+    md:hover:scale-110
+    md:hover:border-blue-500 md:dark:hover:border-blue-500
+    md:hover:shadow-2xl
+    md:hover:-translate-y-2
+    md:hover:rotate-2
     cursor-pointer
     group
+    active:scale-95
   '
               onClick={() => window.open(cert.link, "_blank")}
             >
@@ -68,7 +69,7 @@ export default function CertificationSection() {
                 alt='Certification logo'
                 width={160}
                 height={160}
-                className='object-contain transition-transform duration-300 group-hover:scale-110'
+                className='object-contain transition-transform duration-300 md:group-hover:scale-110'
               />
             </div>
           ))}
