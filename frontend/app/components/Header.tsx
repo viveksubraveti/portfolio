@@ -1,42 +1,56 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import { NAVIGATION_SECTIONS } from "../config/links";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = NAVIGATION_SECTIONS.map((item) => item.href.substring(1));
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const viewportCenter = scrollY + windowHeight / 2;
+    let ticking = false;
 
-      let activeSection = sections[0];
-      
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementTop = rect.top + scrollY;
-          const elementBottom = elementTop + rect.height;
-          
-          if (viewportCenter >= elementTop && viewportCenter <= elementBottom) {
-            activeSection = sectionId;
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = NAVIGATION_SECTIONS.map((item) =>
+            item.href.substring(1)
+          );
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const viewportCenter = scrollY + windowHeight / 2;
+
+          let activeSection = sections[0];
+
+          for (const sectionId of sections) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              const elementTop = rect.top + scrollY;
+              const elementBottom = elementTop + rect.height;
+
+              if (
+                viewportCenter >= elementTop &&
+                viewportCenter <= elementBottom
+              ) {
+                activeSection = sectionId;
+                break;
+              }
+            }
           }
-        }
+
+          setActiveSection(activeSection);
+          ticking = false;
+        });
+
+        ticking = true;
       }
-      
-      setActiveSection(activeSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // initial check
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -52,7 +66,7 @@ export default function Header() {
     <header className='fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700'>
       <div className='w-full px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center h-16'>
-          {/* Logo - Left Corner */}
+          {/* Logo */}
           <div className='flex-shrink-0'>
             <button
               onClick={() => scrollToSection("#about")}
@@ -92,28 +106,11 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className='md:hidden p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
             >
-              <svg
-                className='w-6 h-6'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-              >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M6 18L18 6M6 6l12 12'
-                  />
-                ) : (
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M4 6h16M4 12h16M4 18h16'
-                  />
-                )}
-              </svg>
+              {isMenuOpen ? (
+                <X className='w-6 h-6' />
+              ) : (
+                <Menu className='w-6 h-6' />
+              )}
             </button>
 
             <ThemeToggle />

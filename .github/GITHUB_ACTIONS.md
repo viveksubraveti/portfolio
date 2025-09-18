@@ -5,12 +5,14 @@
 Add these secrets to your GitHub repository:
 
 ### AWS Credentials
+
 - `AWS_ACCESS_KEY_ID` - Your AWS access key
 - `AWS_SECRET_ACCESS_KEY` - Your AWS secret key
 
 ### Infrastructure Values
-- `S3_BUCKET_NAME` - `viveksubraveti-portfolio`
-- `CLOUDFRONT_DISTRIBUTION_ID` - `E17TDX1FKKVQVT`
+
+- `S3_BUCKET_NAME` - bucket-name
+- `CLOUDFRONT_DISTRIBUTION_ID` - cloud-distribution-id
 
 ## How to Add Secrets
 
@@ -22,14 +24,17 @@ Add these secrets to your GitHub repository:
 ## Workflows
 
 ### 1. **Test & Build** (`test.yml`)
+
 - Runs on: Feature branches, dev branch, PRs
 - Actions: Lint, build, validate Terraform
 
 ### 2. **Deploy Portfolio** (`deploy.yml`)
+
 - Runs on: Push to main branch
 - Actions: Build frontend, deploy to S3, invalidate CloudFront
 
 ### 3. **Deploy Infrastructure** (`infrastructure.yml`)
+
 - Runs on: Manual trigger only
 - Actions: Terraform plan/apply/destroy
 
@@ -40,6 +45,6 @@ feature/your-feature → develop → main
 ```
 
 - **Feature branches**: Run tests only
-- **Develop branch**: Run tests only  
+- **Develop branch**: Run tests only
 - **Main branch**: Deploy to production
 - **Manual**: Infrastructure changes
