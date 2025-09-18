@@ -101,7 +101,7 @@ const workHistory: Work[] = [
   {
     id: 3,
     title: "Software Engineer",
-    company: "Changepond Technologies",
+    company: "Changepond Technologies Pvt Ltd",
     location: "Chennai, India",
     period: "Jan 2015 – Dec 2017",
     projects: [
@@ -172,20 +172,23 @@ export default function WorkSection() {
               {/* Projects */}
               {openId === job.id && (
                 <div className='mt-6 border-t border-gray-200 dark:border-gray-600 pt-4 space-y-5'>
-                  {job.projects.map((project, idx) => (
-                    <div key={idx} className='space-y-3'>
+                  {job.projects.map((project) => (
+                    <div
+                      key={`${job.id}-${project.name}`}
+                      className='space-y-3'
+                    >
                       <h3 className='text-md font-semibold text-gray-800 dark:text-gray-200'>
                         {project.name}
                       </h3>
                       <ul className='list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300'>
                         {project.description.map((point, pIdx) => (
-                          <li key={pIdx}>{point}</li>
+                          <li key={`${project.name}-desc-${pIdx}`}>{point}</li>
                         ))}
                       </ul>
                       <div className='flex flex-wrap gap-2 mt-2'>
-                        {project.tools.map((tool, tIdx) => (
+                        {project.tools.map((tool) => (
                           <span
-                            key={tIdx}
+                            key={`${project.name}-${tool}`}
                             className='bg-blue-100 text-blue-700 dark:bg-blue-700 dark:text-blue-100 px-3 py-1 rounded-full text-xs font-medium'
                           >
                             {tool}

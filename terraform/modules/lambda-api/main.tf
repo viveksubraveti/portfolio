@@ -4,7 +4,7 @@ resource "aws_lambda_function" "visitor_count" {
   function_name    = "portfolio-visitor-count"
   role            = aws_iam_role.lambda_role.arn
   handler         = "visitor-count.lambda_handler"
-  runtime         = "python3.9"
+  runtime         = "python3.11"
   timeout         = 10
 
   depends_on = [data.archive_file.lambda_zip]
