@@ -44,26 +44,28 @@ export default function CertificationSection() {
         </h2>
         <div className='grid grid-cols-2 sm:grid-cols-4 gap-8'>
           {certifications.map((cert, idx) => (
-            <div
+            <a
               key={idx}
+              href={cert.link || "#"}
+              target='_blank'
+              rel='noopener noreferrer'
               className='
-    flex items-center justify-center
-    aspect-square
-    h-40
-    bg-white dark:bg-gray-800
-    rounded-xl
-    border-2 border-gray-300 dark:border-gray-700
-    transition-all duration-300
-    md:hover:scale-110
-    md:hover:border-blue-500 md:dark:hover:border-blue-500
-    md:hover:shadow-2xl
-    md:hover:-translate-y-2
-    md:hover:rotate-2
-    cursor-pointer
-    group
-    active:scale-95
-  '
-              onClick={() => window.open(cert.link, "_blank")}
+                flex items-center justify-center
+                aspect-square
+                h-40
+                bg-white dark:bg-gray-800
+                rounded-xl
+                border-2 border-gray-300 dark:border-gray-700
+                transition-all duration-300
+                md:hover:scale-110
+                md:hover:border-blue-500 md:dark:hover:border-blue-500
+                md:hover:shadow-2xl
+                md:hover:-translate-y-2
+                md:hover:rotate-2
+                cursor-pointer
+                group
+                active:scale-95
+              '
             >
               <Image
                 src={cert.logo}
@@ -72,7 +74,7 @@ export default function CertificationSection() {
                 height={160}
                 className='object-contain transition-transform duration-300 md:group-hover:scale-110'
               />
-            </div>
+            </a>
           ))}
         </div>
       </div>

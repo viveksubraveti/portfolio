@@ -9,29 +9,35 @@ export default function VisitorCount() {
 
   useEffect(() => {
     const updateVisitorCount = async () => {
-      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      
+      const isLocalhost =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+
       if (isLocalhost) {
         // Use localStorage for localhost
-        const currentCount = parseInt(localStorage.getItem("visitorCount") || "0");
-        const newCount = currentCount + 1;
+        const storedValue = localStorage.getItem("visitorCount") || "0";
+        const currentCount = parseInt(storedValue);
+        const validCount = Number.isNaN(currentCount) ? 0 : currentCount;
+        const newCount = validCount + 1;
         localStorage.setItem("visitorCount", newCount.toString());
         setCount(newCount);
         setLoading(false);
       } else {
         // Use DynamoDB API for production
         try {
-          const response = await fetch(`${LINKS.api.visitorCount}/visitor-count`);
-          
+          const response = await fetch(
+            `${LINKS.api.visitorCount}/visitor-count`
+          );
+
           if (response.ok) {
             const data = await response.json();
             setCount(data.count);
           } else {
-            console.error('API Failed - Status:', response.status);
+            console.error("API Failed - Status:", response.status);
             setCount(0);
           }
         } catch (error) {
-          console.error('API Error:', error);
+          console.error("API Error:", error);
           setCount(0);
         } finally {
           setLoading(false);

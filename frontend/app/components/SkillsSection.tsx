@@ -1,20 +1,22 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { StarIcon } from "@heroicons/react/24/solid";
+import { StarIcon as StarOutlineIcon } from "@heroicons/react/24/outline";
 
 const skills = [
-  { name: "Python", stars: 5 },
-  { name: "JavaScript", stars: 5 },
-  { name: "Django", stars: 5 },
-  { name: "AWS", stars: 3 },
-  { name: "Java", stars: 3 },
-  { name: "React/Next.js", stars: 4 },
-  { name: "Node.js", stars: 3 },
-  { name: "Docker/Kubernetes", stars: 4 },
-  { name: "Terraform", stars: 4 },
-  { name: "MySQL/PostgreSQL", stars: 4 },
-  { name: "RESTful APIs", stars: 4 },
-  { name: "Pandas/NumPy", stars: 4 },
+  { name: "Python", stars: 4, inProgress: true },
+  { name: "JavaScript", stars: 4, inProgress: true },
+  { name: "Java", stars: 3, inProgress: true },
+  { name: "Django", stars: 5, inProgress: false },
+  { name: "React/Next.js", stars: 3, inProgress: true },
+  { name: "Node.js", stars: 3, inProgress: false },
+  { name: "Pandas/NumPy", stars: 4, inProgress: false },
+  { name: "RESTful APIs", stars: 4, inProgress: true },
+  { name: "AWS", stars: 2, inProgress: true },
+  { name: "Terraform", stars: 4, inProgress: true },
+  { name: "Docker/Kubernetes", stars: 3, inProgress: true },
+  { name: "MySQL/PostgreSQL", stars: 4, inProgress: false },
 ];
 
 interface StarRatingProps {
@@ -24,6 +26,7 @@ interface StarRatingProps {
 
 function StarRating({ skill, isVisible }: StarRatingProps) {
   const [animatedStars, setAnimatedStars] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (isVisible) {
@@ -35,10 +38,29 @@ function StarRating({ skill, isVisible }: StarRatingProps) {
         } else {
           clearInterval(interval);
         }
-      }, 150);
+      }, 100);
+
+      // Animate progress for in-progress star
+      if (skill.inProgress) {
+        setProgress(0);
+        const progressInterval = setInterval(() => {
+          setProgress((prev) => {
+            if (prev >= 100) return 0;
+            return prev + 5;
+          });
+        }, 50);
+        return () => {
+          clearInterval(interval);
+          clearInterval(progressInterval);
+        };
+      }
+
       return () => clearInterval(interval);
+    } else {
+      setAnimatedStars(0);
+      setProgress(0);
     }
-  }, [isVisible, skill.stars]);
+  }, [isVisible, skill.stars, skill.inProgress]);
 
   return (
     <div className='flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow'>
@@ -46,20 +68,35 @@ function StarRating({ skill, isVisible }: StarRatingProps) {
         {skill.name}
       </span>
       <div className='flex space-x-1'>
-        {[1, 2, 3, 4, 5].map((star) => (
-          <svg
-            key={star}
-            className={`w-5 h-5 transition-all duration-300 ${
-              star <= animatedStars
-                ? "text-yellow-400 scale-110"
-                : "text-gray-300 dark:text-gray-600"
-            }`}
-            fill='currentColor'
-            viewBox='0 0 20 20'
-          >
-            <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-          </svg>
-        ))}
+        {[1, 2, 3, 4, 5].map((star) => {
+          if (star <= animatedStars) {
+            return (
+              <StarIcon
+                key={star}
+                className='w-5 h-5 text-yellow-400 transition-all duration-300'
+              />
+            );
+          } else if (star === animatedStars + 1 && skill.inProgress) {
+            return (
+              <div key={star} className='relative w-5 h-5'>
+                <StarOutlineIcon className='w-5 h-5 text-gray-300 dark:text-gray-600 absolute' />
+                <div
+                  className='absolute inset-0 overflow-hidden'
+                  style={{ width: `${progress}%` }}
+                >
+                  <StarIcon className='w-5 h-5 text-yellow-400' />
+                </div>
+              </div>
+            );
+          } else {
+            return (
+              <StarOutlineIcon
+                key={star}
+                className='w-5 h-5 text-gray-300 dark:text-gray-600'
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );
@@ -71,18 +108,10 @@ export default function SkillsSection() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -96,7 +125,6 @@ export default function SkillsSection() {
         <h2 className='text-2xl font-bold text-gray-900 dark:text-white mb-8'>
           Technical Skills
         </h2>
-
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           {skills.map((skill) => (
             <StarRating key={skill.name} skill={skill} isVisible={isVisible} />
@@ -118,7 +146,6 @@ export default function SkillsSection() {
                 "Node.js",
                 "React",
                 "Next.js",
-                "RESTful APIs",
               ].map((tech) => (
                 <span
                   key={tech}
@@ -164,6 +191,7 @@ export default function SkillsSection() {
                 "PostgreSQL",
                 "MongoDB",
                 "DynamoDB",
+                "MSSQL",
                 "Pandas",
                 "NumPy",
                 "Plotly",

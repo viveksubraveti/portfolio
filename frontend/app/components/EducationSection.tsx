@@ -6,7 +6,7 @@ const education = [
     university: "Technische Universität Chemnitz",
     location: "Chemnitz, Germany",
     year: "2021",
-    Coursework:
+    courses:
       "Software Platforms for Automotive Systems, Multicore Programming, Image Processing, Machine Learning",
   },
   {
@@ -14,13 +14,16 @@ const education = [
     university: "Sri Ramakrishna Engineering College",
     location: "Coimbatore, India",
     year: "2014",
-    Coursework: "Software Development & Data Structures",
+    courses: "Software Development & Data Structures",
   },
 ];
 
 export default function EducationSection() {
   return (
-    <section id='education' className='bg-gray-100 dark:bg-gray-900 py-12 sm:py-20 transition-colors'>
+    <section
+      id='education'
+      className='bg-gray-100 dark:bg-gray-900 py-12 sm:py-20 transition-colors'
+    >
       <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 className='text-2xl font-bold text-gray-900 dark:text-white mb-8'>
           Education
@@ -45,7 +48,7 @@ export default function EducationSection() {
                   </span>
                 </div>
                 <div className='text-gray-600 dark:text-gray-300'>
-                  Coursework: {edu.Coursework}
+                  Coursework: {edu.courses}
                 </div>
               </div>
             </li>
