@@ -62,20 +62,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <head></head>
+      <head>
+
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script
-          src='https://www.googletagmanager.com/gtag/js?id=G-YQ8EY9C8QJ'
+          src='https://www.googletagmanager.com/gtag/js?id=G-XR6MHJCM9Q'
           strategy='afterInteractive'
         />
         <Script id='google-analytics' strategy='afterInteractive'>
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag(){dataLayer.push(arguments);};
             gtag('js', new Date());
-            gtag('config', 'G-YQ8EY9C8QJ');
+            gtag('config', 'G-XR6MHJCM9Q');
           `}
         </Script>
 
