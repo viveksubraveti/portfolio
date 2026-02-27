@@ -49,8 +49,15 @@ jobs:
         cd terraform
         terraform apply -auto-approve
     
-    - name: Terraform Destroy
+    - name: Terraform Destroy Plan
       if: github.event.inputs.action == 'destroy'
       run: |
         cd terraform
-        terraform destroy -auto-approve
+        echo "⚠️  DESTROY requested — running plan first for review"
+        terraform plan -destroy -out=destroy.tfplan
+
+    - name: Terraform Destroy Apply
+      if: github.event.inputs.action == 'destroy'
+      run: |
+        cd terraform
+        terraform apply destroy.tfplan
