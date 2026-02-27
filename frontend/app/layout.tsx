@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vivek Subraveti Uma Mahesh - Software Engineer",
+  title: "Vivek Subraveti Uma Mahesh - Full Stack Developer",
   description:
-    "Welcome to my portfolio! I am a passionate software engineer who believes in simplicity and effectiveness. I focus on creating straightforward solutions that solve real problems, with clean code and intuitive user experiences.",
+    "Full stack developer building scalable applications end-to-end — from React and Next.js frontends to Django and Node.js backends, powered by AWS cloud infrastructure and DevOps automation.",
   keywords: [
     "Vivek Subraveti",
     "Software Engineer",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Vivek Subraveti" }],
   creator: "Vivek Subraveti Uma Mahesh",
   openGraph: {
-    title: "Vivek Subraveti Uma Mahesh - Developer Portfolio",
+    title: "Vivek Subraveti Uma Mahesh - Full Stack Developer Portfolio",
     description:
-      "Passionate developer creating simple and effective solutions.",
+      "Full stack developer building scalable applications from frontend to backend with cloud infrastructure.",
     url: LINKS.website.main,
     siteName: "Vivek Subraveti Uma Mahesh - Portfolio",
     locale: "en_US",

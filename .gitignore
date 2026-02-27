@@ -11,14 +11,22 @@ out/
 
 # Environment variables
 .env
-.env.local
-.env.production.local
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
 
 # Terraform
 terraform/.terraform/
 terraform/*.tfstate
 terraform/*.tfstate.backup
 terraform/.terraform.lock.hcl
+terraform/terraform.tfvars
+*.zip
 
 # AWS
 .aws/
@@ -26,7 +34,17 @@ terraform/.terraform.lock.hcl
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Misc
+*.pem
