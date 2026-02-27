@@ -9,14 +9,10 @@ export default function BackToTop() {
   useEffect(() => {
     let ticking = false;
 
-    const updateVisibility = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          updateVisibility();
+          setIsVisible(window.scrollY > 300);
           ticking = false;
         });
         ticking = true;
@@ -24,7 +20,7 @@ export default function BackToTop() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    updateVisibility(); // set initial state
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -38,10 +34,10 @@ export default function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className='fixed bottom-8 right-8 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg 
-                 hover:bg-blue-700 hover:scale-110 transition-all duration-300 animate-fade-in'
+      className="fixed bottom-6 right-6 z-50 p-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-lg shadow-indigo-500/25 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 animate-fade-in"
+      aria-label="Back to top"
     >
-      <ArrowUp className='w-5 h-5' />
+      <ArrowUp className="w-5 h-5" />
     </button>
   );
 }

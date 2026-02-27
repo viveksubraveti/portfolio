@@ -25,7 +25,7 @@ export default function ThemeToggleIcon() {
           theme === "light" ? "dark" : theme === "dark" ? "system" : "light"
         )
       }
-      className='p-3 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition-all shadow-lg'
+      className='p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all'
       title={`Current theme: ${currentTheme}`}
     >
       <Icon size={20} />
