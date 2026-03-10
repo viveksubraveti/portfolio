@@ -40,8 +40,8 @@ Databases:    PostgreSQL, MySQL, MongoDB`,
                 │  Software Engineer
                 │  Java · Struts · MSSQL`,
 
-  education: `M.Sc. Computer Science    │  RWTH Aachen University    │  2017 - 2021
-B.Tech Computer Science   │  VIT University            │  2011 - 2015`,
+  education: `M.Sc. Automotive Software Engineering  │  TU Chemnitz                        │  2021
+M.Sc. Software Engineering            │  Sri Ramakrishna Engineering College  │  2014`,
 
   contact: `Email:     viveksubraveti@gmail.com
 GitHub:    github.com/viveksubraveti
